@@ -1,0 +1,41 @@
+# Lightweight Development Options for Postiz
+
+## Current Resource Usage
+- Full dev mode runs: extension, cron, workers, backend, frontend (5 services)
+- Each service: ~200-500MB RAM in dev mode
+- Total estimated: ~2-3GB RAM + Docker containers (~600MB)
+
+## Recommended Lightweight Setup
+
+### Option 1: Run Only Frontend + Backend (Minimal)
+```bash
+# Stop current dev servers
+pkill -f "nest start" && pkill -f "next dev"
+
+# Run only essential services
+pnpm run dev:frontend &  # Frontend on port 4200
+pnpm run dev:backend &   # Backend on port 3000
+```
+
+### Option 2: Use Production Builds (Lower Memory)
+```bash
+# Build once, then run production mode (uses less memory)
+pnpm run build
+pnpm run start:prod:frontend &  # Uses less RAM than dev mode
+pnpm run start:prod:backend &
+```
+
+### Option 3: Disable Extension Development
+The extension is only needed if you're developing browser extension features.
+You can skip it by running:
+```bash
+pnpm run --filter ./apps/cron --filter ./apps/workers --filter ./apps/backend --filter ./apps/frontend --parallel dev
+```
+
+## Memory Optimization Tips
+1. Close other heavy applications
+2. Disable unnecessary Docker containers (pgAdmin, RedisInsight are optional)
+3. Use production builds for testing instead of dev mode
+4. Consider running services one at a time if needed
+
+
