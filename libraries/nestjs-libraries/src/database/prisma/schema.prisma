@@ -32,6 +32,7 @@ model Organization {
   post              Post[]             @relation("organization")
   submittedPost     Post[]             @relation("submittedForOrg")
   sets              Sets[]
+  recurringContent  RecurringContent[]
   signatures        Signatures[]
   subscription      Subscription?
   tags              Tags[]
@@ -624,6 +625,26 @@ model Sets {
   organization   Organization @relation(fields: [organizationId], references: [id])
 
   @@index([organizationId])
+}
+
+model RecurringContent {
+  id               String       @id @default(uuid())
+  organizationId   String
+  active           Boolean      @default(true)
+  name             String
+  topics           String       // JSON array of topics
+  integrations     String       // JSON array of integration IDs
+  style            String       @default("viral")
+  videoOrientation String       @default("vertical")
+  schedule         String       @default("MON,WED,FRI")  // Days of week
+  scheduleTime     String       @default("10:00")        // Time of day (HH:mm)
+  lastRunAt        DateTime?
+  createdAt        DateTime     @default(now())
+  updatedAt        DateTime     @updatedAt
+  organization     Organization @relation(fields: [organizationId], references: [id])
+
+  @@index([organizationId])
+  @@index([active])
 }
 
 model ThirdParty {

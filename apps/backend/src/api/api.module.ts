@@ -31,6 +31,7 @@ import { Nowpayments } from '@gitroom/nestjs-libraries/crypto/nowpayments';
 import { WebhookController } from '@gitroom/backend/api/routes/webhooks.controller';
 import { SignatureController } from '@gitroom/backend/api/routes/signature.controller';
 import { AutopostController } from '@gitroom/backend/api/routes/autopost.controller';
+import { RecurringContentController } from '@gitroom/backend/api/routes/recurring.content.controller';
 import { SetsController } from '@gitroom/backend/api/routes/sets.controller';
 import { ThirdPartyController } from '@gitroom/backend/api/routes/third-party.controller';
 import { MonitorController } from '@gitroom/backend/api/routes/monitor.controller';
@@ -51,6 +52,7 @@ const authenticatedController = [
   WebhookController,
   SignatureController,
   AutopostController,
+  RecurringContentController,
   SetsController,
   ThirdPartyController,
 ];

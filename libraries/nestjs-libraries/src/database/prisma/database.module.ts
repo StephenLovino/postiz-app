@@ -39,6 +39,8 @@ import { SetsService } from '@gitroom/nestjs-libraries/database/prisma/sets/sets
 import { SetsRepository } from '@gitroom/nestjs-libraries/database/prisma/sets/sets.repository';
 import { ThirdPartyRepository } from '@gitroom/nestjs-libraries/database/prisma/third-party/third-party.repository';
 import { ThirdPartyService } from '@gitroom/nestjs-libraries/database/prisma/third-party/third-party.service';
+import { RecurringContentRepository } from '@gitroom/nestjs-libraries/database/prisma/recurring-content/recurring.content.repository';
+import { RecurringContentService } from '@gitroom/nestjs-libraries/database/prisma/recurring-content/recurring.content.service';
 import { VideoManager } from '@gitroom/nestjs-libraries/videos/video.manager';
 import { FalService } from '@gitroom/nestjs-libraries/openai/fal.service';
 import { RefreshIntegrationService } from '@gitroom/nestjs-libraries/integrations/refresh.integration.service';
@@ -92,6 +94,8 @@ import { RefreshIntegrationService } from '@gitroom/nestjs-libraries/integration
     SetsRepository,
     ThirdPartyRepository,
     ThirdPartyService,
+    RecurringContentRepository,
+    RecurringContentService,
     VideoManager,
   ],
   get exports() {
