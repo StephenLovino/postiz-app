@@ -1,6 +1,12 @@
 services:
   postiz:
-    image: ghcr.io/gitroomhq/postiz-app:latest
+    build:
+      context: .
+      dockerfile: Dockerfile.dev
+      args:
+        NEXT_PUBLIC_VERSION: "1.0.0"
+        NEXT_PUBLIC_BACKEND_URL: "https://ahaprojects-postiz.loowdu.easypanel.host/api"
+        NEXT_PUBLIC_UPLOAD_DIRECTORY: "/uploads"
     restart: always
     environment:
       # === Required Settings (https://docs.postiz.com/configuration/reference#required-settings)
