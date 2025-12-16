@@ -1,12 +1,6 @@
 services:
   postiz:
-    build:
-      context: .
-      dockerfile: Dockerfile.dev
-      args:
-        NEXT_PUBLIC_VERSION: "1.0.0"
-        NEXT_PUBLIC_BACKEND_URL: "https://ahaprojects-postiz.loowdu.easypanel.host/api"
-        NEXT_PUBLIC_UPLOAD_DIRECTORY: "/uploads"
+    image: ghcr.io/gitroomhq/postiz-app:latest
     restart: always
     environment:
       # === Required Settings (https://docs.postiz.com/configuration/reference#required-settings)
@@ -26,6 +20,8 @@ services:
       BACKEND_INTERNAL_URL: "http://localhost:3000"
       IS_GENERAL: "true"
       DISABLE_REGISTRATION: "false"
+      # NOT_SECURED: Use header-based auth instead of cookies (workaround for cookie domain issues)
+      NOT_SECURED: "true"
       
       # === Storage Settings
       STORAGE_PROVIDER: "local"
