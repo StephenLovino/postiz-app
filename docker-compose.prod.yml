@@ -5,13 +5,13 @@ services:
     environment:
       # === Required Settings (https://docs.postiz.com/configuration/reference#required-settings)
       # MAIN_URL: Used for internal routing (may be required in some setups)
-      MAIN_URL: "https://postiz.your-server.com"
+      MAIN_URL: "https://ahaprojects-postiz.loowdu.easypanel.host"
       # FRONTEND_URL: Required - Frontend URL
-      FRONTEND_URL: "https://postiz.your-server.com"
+      FRONTEND_URL: "https://ahaprojects-postiz.loowdu.easypanel.host"
       # NEXT_PUBLIC_BACKEND_URL: Required - Public backend API URL
-      NEXT_PUBLIC_BACKEND_URL: "https://postiz.your-server.com/api"
+      NEXT_PUBLIC_BACKEND_URL: "https://ahaprojects-postiz.loowdu.easypanel.host/api"
       # JWT_SECRET: Required - Random string unique to every installation
-      JWT_SECRET: "random string that is unique to every install - just type random characters here!"
+      JWT_SECRET: "eStOZfihlPdfgRg1eEoTnEYNf+YYoik9R4XmdD/qfjA="
       # DATABASE_URL: Required - PostgreSQL connection string
       DATABASE_URL: "postgresql://postiz-user:postiz-password@postiz-postgres:5432/postiz-db-local"
       # REDIS_URL: Required - Redis connection string
