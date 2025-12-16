@@ -87,6 +87,10 @@ services:
       # === Misc Settings
       OPENAI_API_KEY: ""
       KIEAI_API_KEY: "260e584b8423669781c5f84646b2c3cd"
+      # === Alternative AI Providers (for recurring content generator)
+      GROK_API_KEY: ""  # xAI Grok API key (alternative to OpenAI)
+      XAI_API_KEY: ""   # Alternative name for Grok API key
+      DEEPSEEK_API_KEY: ""  # DeepSeek API key (alternative to OpenAI)
       NEXT_PUBLIC_DISCORD_SUPPORT: ""
       NEXT_PUBLIC_POLOTNO: ""
       API_LIMIT: 30

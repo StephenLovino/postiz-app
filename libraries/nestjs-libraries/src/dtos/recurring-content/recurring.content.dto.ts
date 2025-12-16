@@ -42,6 +42,11 @@ export class RecurringContentDto {
   videoOrientation: string;
 
   @IsString()
+  @IsOptional()
+  @IsIn(['openai', 'grok', 'deepseek'])
+  aiProvider?: string;
+
+  @IsString()
   @IsDefined()
   schedule: string; // e.g., "MON,WED,FRI"
 

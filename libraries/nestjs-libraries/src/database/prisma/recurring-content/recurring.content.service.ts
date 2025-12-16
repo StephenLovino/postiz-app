@@ -7,11 +7,13 @@ import { makeId } from '@gitroom/nestjs-libraries/services/make.is';
 import dayjs from 'dayjs';
 import { z } from 'zod';
 
-const model = new ChatOpenAI({
-  apiKey: process.env.OPENAI_API_KEY || 'sk-proj-',
-  model: 'gpt-4o',
-  temperature: 0.9,
-});
+type AIProvider = 'openai' | 'grok' | 'deepseek';
+
+interface AIModelConfig {
+  apiKey: string;
+  model: string;
+  baseURL?: string;
+}
 
 const contentIdeaSchema = z.object({
   topic: z.string().describe('The main topic or theme for the content'),
@@ -27,6 +29,7 @@ interface RecurringContentConfig {
   integrationIds: string[]; // Which social channels to post to
   style: 'educational' | 'entertaining' | 'inspirational' | 'news' | 'viral';
   videoOrientation: 'vertical' | 'horizontal';
+  aiProvider?: AIProvider; // Which AI to use for content generation
 }
 
 @Injectable()
@@ -38,6 +41,41 @@ export class RecurringContentService {
   ) {}
 
   /**
+   * Get AI model configuration based on provider
+   */
+  private getAIModel(provider: AIProvider = 'openai'): ChatOpenAI {
+    const configs: Record<AIProvider, AIModelConfig> = {
+      openai: {
+        apiKey: process.env.OPENAI_API_KEY || 'sk-proj-',
+        model: 'gpt-4o',
+      },
+      grok: {
+        apiKey: process.env.GROK_API_KEY || process.env.XAI_API_KEY || '',
+        model: 'grok-beta',
+        baseURL: 'https://api.x.ai/v1',
+      },
+      deepseek: {
+        apiKey: process.env.DEEPSEEK_API_KEY || '',
+        model: 'deepseek-chat',
+        baseURL: 'https://api.deepseek.com/v1',
+      },
+    };
+
+    const config = configs[provider];
+
+    if (!config.apiKey) {
+      throw new Error(`API key not configured for provider: ${provider}`);
+    }
+
+    return new ChatOpenAI({
+      apiKey: config.apiKey,
+      model: config.model,
+      temperature: 0.9,
+      ...(config.baseURL && { configuration: { baseURL: config.baseURL } }),
+    });
+  }
+
+  /**
    * Generate and schedule a post with AI-generated video
    */
   async generateAndScheduleContent(config: RecurringContentConfig) {
@@ -46,14 +84,17 @@ export class RecurringContentService {
       return;
     }
 
-    if (!process.env.OPENAI_API_KEY || !process.env.KIEAI_API_KEY) {
-      console.log('Missing required API keys (OPENAI_API_KEY or KIEAI_API_KEY)');
+    const aiProvider = config.aiProvider || 'openai';
+
+    // Check for required API keys
+    if (!process.env.KIEAI_API_KEY) {
+      console.log('Missing KIEAI_API_KEY for video generation');
       return;
     }
 
     try {
       // Step 1: Generate content idea using AI
-      const contentIdea = await this.generateContentIdea(config);
+      const contentIdea = await this.generateContentIdea(config, aiProvider);
       console.log('Generated content idea:', contentIdea);
 
       // Step 2: Generate video using Veo 3
@@ -83,10 +124,11 @@ export class RecurringContentService {
   }
 
   /**
-   * Generate content idea using OpenAI
+   * Generate content idea using selected AI provider
    */
   private async generateContentIdea(
-    config: RecurringContentConfig
+    config: RecurringContentConfig,
+    provider: AIProvider
   ): Promise<z.infer<typeof contentIdeaSchema>> {
     const topicsList = config.topics.join(', ');
     const styleGuide = this.getStyleGuide(config.style);
@@ -109,6 +151,7 @@ Generate a complete content package with:
 3. Engaging social media caption
 4. Relevant hashtags`;
 
+    const model = this.getAIModel(provider);
     const structuredLlm = model.withStructuredOutput(contentIdeaSchema);
     const result = await structuredLlm.invoke(prompt);
 

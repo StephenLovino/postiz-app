@@ -13,19 +13,46 @@ Generate and post AI videos automatically like faceless.video!
 
 ## 🔧 Setup Requirements
 
-1. **OpenAI API Key** (for content generation)
+### 1. AI Provider API Key (choose one for content generation):
+
+**Option A: OpenAI (GPT-4)**
    ```env
    OPENAI_API_KEY="sk-..."
    ```
 
-2. **kie.ai API Key** (for Veo 3 video generation)
+**Option B: Grok (xAI)**
+   ```env
+   GROK_API_KEY="xai-..."
+   # or
+   XAI_API_KEY="xai-..."
+   ```
+   - Get API key: https://console.x.ai
+   - Model: grok-beta
+   - Cost: $5/1M tokens (cheaper than GPT-4)
+
+**Option C: DeepSeek**
+   ```env
+   DEEPSEEK_API_KEY="sk-..."
+   ```
+   - Get API key: https://platform.deepseek.com
+   - Model: deepseek-chat
+   - Cost: $0.14/1M tokens (very affordable!)
+
+### 2. Video Generation API Key (required)
+
+**kie.ai API Key** (for Veo 3 video generation)
    ```env
    KIEAI_API_KEY="your-key-here"
    ```
+   - Get API key: https://kie.ai
 
-3. **Run Database Migration**:
+### 3. Run Database Migration:
    ```bash
-   pnpm dlx prisma migrate dev --name add_recurring_content
+   pnpm dlx prisma migrate dev --name add_ai_providers
+   ```
+   Or simpler:
+   ```bash
+   pnpm dlx prisma db push
    ```
 
 ## 📋 How to Use
@@ -52,6 +79,7 @@ POST /recurring-content
   ],
   "style": "educational",  // or: entertaining, inspirational, news, viral
   "videoOrientation": "vertical",  // or: horizontal
+  "aiProvider": "grok",  // optional: openai (default), grok, or deepseek
   "schedule": "MON,WED,FRI",  // Days of week
   "scheduleTime": "10:00"  // Time of day (24h format)
 }
@@ -110,6 +138,24 @@ DELETE /recurring-content/:id
 - `14:30` - 2:30 PM
 - `21:00` - 9 PM
 
+## 🤖 AI Provider Options
+
+Choose which AI model generates your content ideas and captions:
+
+| Provider | Model | Cost/1M tokens | Speed | Best For |
+|----------|-------|---------------|-------|----------|
+| **OpenAI** | GPT-4o | ~$2.50 | Fast | High-quality, reliable output |
+| **Grok** | grok-beta | ~$5.00 | Fast | X/Twitter-style content, edgy tone |
+| **DeepSeek** | deepseek-chat | ~$0.14 | Medium | Budget-friendly, good quality |
+
+### Choosing the Right AI
+
+- **OpenAI (GPT-4)**: Most reliable, best for business content
+- **Grok**: Great for X/Twitter content, can be more creative/edgy
+- **DeepSeek**: Best value, 95% the quality at 5% the cost
+
+Set via `aiProvider` field in the API (defaults to `openai` if not specified).
+
 ## 🎨 Content Styles
 
 - **educational**: Teaching valuable information
@@ -120,33 +166,48 @@ DELETE /recurring-content/:id
 
 ## 📊 Example Use Cases
 
-### Tech Content Creator
+### Tech Content Creator (Using DeepSeek for cost savings)
 ```json
 {
   "topics": ["AI", "coding tips", "tech news"],
   "style": "educational",
+  "aiProvider": "deepseek",
   "schedule": "MON,WED,FRI",
   "scheduleTime": "09:00"
 }
 ```
 
-### Lifestyle Brand
+### Lifestyle Brand (Using OpenAI for quality)
 ```json
 {
   "topics": ["wellness", "self-care", "mindfulness"],
   "style": "inspirational",
+  "aiProvider": "openai",
   "schedule": "TUE,THU,SAT",
   "scheduleTime": "18:00"
 }
 ```
 
-### News Channel
+### Twitter/X News Channel (Using Grok)
 ```json
 {
   "topics": ["tech news", "AI updates", "startup news"],
   "style": "news",
+  "aiProvider": "grok",
+  "videoOrientation": "vertical",
   "schedule": "MON,TUE,WED,THU,FRI",
   "scheduleTime": "08:00"
+}
+```
+
+### Viral Content (High volume with DeepSeek)
+```json
+{
+  "topics": ["trending topics", "pop culture", "memes"],
+  "style": "viral",
+  "aiProvider": "deepseek",
+  "schedule": "MON,TUE,WED,THU,FRI,SAT,SUN",
+  "scheduleTime": "12:00"
 }
 ```
 

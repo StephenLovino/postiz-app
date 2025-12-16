@@ -43,6 +43,7 @@ export class RecurringContentCron {
             integrationIds: JSON.parse(content.integrations),
             style: content.style as any,
             videoOrientation: content.videoOrientation as any,
+            aiProvider: content.aiProvider as any,
           });
 
           // Update last run time

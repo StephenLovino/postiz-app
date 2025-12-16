@@ -45,6 +45,7 @@ export class RecurringContentController {
       integrations: JSON.stringify(body.integrations),
       style: body.style,
       videoOrientation: body.videoOrientation,
+      aiProvider: body.aiProvider || 'openai',
       schedule: body.schedule,
       scheduleTime: body.scheduleTime,
     });
@@ -63,6 +64,7 @@ export class RecurringContentController {
       integrations: JSON.stringify(body.integrations),
       style: body.style,
       videoOrientation: body.videoOrientation,
+      aiProvider: body.aiProvider || 'openai',
       schedule: body.schedule,
       scheduleTime: body.scheduleTime,
     });

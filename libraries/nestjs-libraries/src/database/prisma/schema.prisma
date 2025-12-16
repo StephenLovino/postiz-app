@@ -636,6 +636,7 @@ model RecurringContent {
   integrations     String       // JSON array of integration IDs
   style            String       @default("viral")
   videoOrientation String       @default("vertical")
+  aiProvider       String       @default("openai")  // openai, grok, deepseek
   schedule         String       @default("MON,WED,FRI")  // Days of week
   scheduleTime     String       @default("10:00")        // Time of day (HH:mm)
   lastRunAt        DateTime?
