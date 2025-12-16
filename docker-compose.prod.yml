@@ -1,7 +1,6 @@
 services:
   postiz:
     image: ghcr.io/gitroomhq/postiz-app:latest
-    container_name: postiz
     restart: always
     environment:
       # === Required Settings (https://docs.postiz.com/configuration/reference#required-settings)
@@ -115,9 +114,6 @@ services:
       - postiz-config:/config/
       - postiz-uploads:/uploads/
     
-    ports:
-      - 5000:5000
-    
     networks:
       - postiz-network
     
@@ -129,7 +125,6 @@ services:
 
   postiz-postgres:
     image: postgres:17-alpine
-    container_name: postiz-postgres
     restart: always
     environment:
       POSTGRES_PASSWORD: postiz-password
@@ -147,7 +142,6 @@ services:
 
   postiz-redis:
     image: redis:7.2
-    container_name: postiz-redis
     restart: always
     healthcheck:
       test: redis-cli ping
@@ -162,9 +156,6 @@ services:
   # For Application Monitoring / Debugging
   spotlight:
     pull_policy: always
-    container_name: spotlight
-    ports:
-      - 8969:8969/tcp
     image: ghcr.io/getsentry/spotlight:latest
     networks:
       - postiz-network
