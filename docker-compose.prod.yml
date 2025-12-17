@@ -12,9 +12,9 @@ services:
         NEXT_PUBLIC_DISCORD_SUPPORT: ""
         NEXT_PUBLIC_POLOTNO: ""
         # OAuth Settings - Leave empty to show Google Sign-In instead of Authentik
+        # POSTIZ_GENERIC_OAUTH: Not set (empty) = false, which shows Google Sign-In
         NEXT_PUBLIC_POSTIZ_OAUTH_DISPLAY_NAME: ""
         NEXT_PUBLIC_POSTIZ_OAUTH_LOGO_URL: ""
-        POSTIZ_GENERIC_OAUTH: "false"
         NEXT_PUBLIC_SENTRY_DSN: "http://spotlight:8969/stream"
         NEXT_PUBLIC_TOLT: ""
         NEXT_PUBLIC_FACEBOOK_PIXEL: ""
@@ -130,6 +130,9 @@ services:
       # LINK_DRIP_API_KEY: ""
       # LINK_DRIP_API_ENDPOINT: "https://api.linkdrip.com/v1/"
       # LINK_DRIP_SHORT_LINK_DOMAIN: "dripl.ink"
+    
+    ports:
+      - "5000:5000"
     
     volumes:
       - postiz-config:/config/
