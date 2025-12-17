@@ -7,7 +7,7 @@ const clientAndYoutube = () => {
   const client = new google.auth.OAuth2({
     clientId: process.env.YOUTUBE_CLIENT_ID,
     clientSecret: process.env.YOUTUBE_CLIENT_SECRET,
-    redirectUri: `${process.env.FRONTEND_URL}/integrations/social/youtube`,
+    redirectUri: `${process.env.FRONTEND_URL}/auth/google/callback`,
   });
 
   const youtube = (newClient: OAuth2Client) =>
@@ -35,11 +35,13 @@ export class GoogleProvider implements ProvidersInterface {
   generateLink() {
     const state = makeId(7);
     const { client } = clientAndYoutube();
+    // Use /auth/google/callback for sign-in, /integrations/social/youtube for YouTube integration
+    const redirectUri = `${process.env.FRONTEND_URL}/auth/google/callback`;
     return client.generateAuthUrl({
       access_type: 'online',
       prompt: 'consent',
       state,
-      redirect_uri: `${process.env.FRONTEND_URL}/integrations/social/youtube`,
+      redirect_uri: redirectUri,
       scope: [
         'https://www.googleapis.com/auth/userinfo.profile',
         'https://www.googleapis.com/auth/userinfo.email',
