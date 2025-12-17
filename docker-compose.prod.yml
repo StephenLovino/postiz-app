@@ -1,15 +1,33 @@
 services:
   postiz:
-    image: ghcr.io/gitroomhq/postiz-app:latest
+    build:
+      context: .
+      dockerfile: Dockerfile.dev
+      args:
+        # Build-time variables (baked into Next.js frontend)
+        NEXT_PUBLIC_VERSION: "latest"
+        NEXT_PUBLIC_BACKEND_URL: "https://ahaprojects-postiz.loowdu.easypanel.host/api"
+        NEXT_PUBLIC_UPLOAD_DIRECTORY: "/uploads"
+        NEXT_PUBLIC_UPLOAD_STATIC_DIRECTORY: "/uploads"
+        NEXT_PUBLIC_DISCORD_SUPPORT: ""
+        NEXT_PUBLIC_POLOTNO: ""
+        # OAuth Settings - Leave empty to show Google Sign-In instead of Authentik
+        NEXT_PUBLIC_POSTIZ_OAUTH_DISPLAY_NAME: ""
+        NEXT_PUBLIC_POSTIZ_OAUTH_LOGO_URL: ""
+        POSTIZ_GENERIC_OAUTH: "false"
+        NEXT_PUBLIC_SENTRY_DSN: "http://spotlight:8969/stream"
+        NEXT_PUBLIC_TOLT: ""
+        NEXT_PUBLIC_FACEBOOK_PIXEL: ""
+        IS_GENERAL: "true"
+        STORAGE_PROVIDER: "local"
+        FRONTEND_URL: "https://ahaprojects-postiz.loowdu.easypanel.host"
     restart: always
     environment:
       # === Required Settings (https://docs.postiz.com/configuration/reference#required-settings)
       # MAIN_URL: Used for internal routing (may be required in some setups)
       MAIN_URL: "https://ahaprojects-postiz.loowdu.easypanel.host"
-      # FRONTEND_URL: Required - Frontend URL
+      # FRONTEND_URL: Required - Frontend URL (used by backend at runtime)
       FRONTEND_URL: "https://ahaprojects-postiz.loowdu.easypanel.host"
-      # NEXT_PUBLIC_BACKEND_URL: Required - Public backend API URL
-      NEXT_PUBLIC_BACKEND_URL: "https://ahaprojects-postiz.loowdu.easypanel.host/api"
       # JWT_SECRET: Required - Random string unique to every installation
       JWT_SECRET: "eStOZfihlPdfgRg1eEoTnEYNf+YYoik9R4XmdD/qfjA="
       # DATABASE_URL: Required - PostgreSQL connection string
@@ -26,7 +44,6 @@ services:
       # === Storage Settings
       STORAGE_PROVIDER: "local"
       UPLOAD_DIRECTORY: "/uploads"
-      NEXT_PUBLIC_UPLOAD_DIRECTORY: "/uploads"
       
       # === Cloudflare (R2) Settings (Optional - leave blank if using local storage)
       CLOUDFLARE_ACCOUNT_ID: "your-account-id"
@@ -71,19 +88,16 @@ services:
       GOOGLE_GMB_CLIENT_ID: ""
       GOOGLE_GMB_CLIENT_SECRET: ""
       
-      # === OAuth & Authentik Settings
-      NEXT_PUBLIC_POSTIZ_OAUTH_DISPLAY_NAME: "Authentik"
-      NEXT_PUBLIC_POSTIZ_OAUTH_LOGO_URL: "https://raw.githubusercontent.com/walkxcode/dashboard-icons/master/png/authentik.png"
-      POSTIZ_GENERIC_OAUTH: "false"
-      POSTIZ_OAUTH_URL: "https://auth.example.com"
-      POSTIZ_OAUTH_AUTH_URL: "https://auth.example.com/application/o/authorize"
-      POSTIZ_OAUTH_TOKEN_URL: "https://auth.example.com/application/o/token"
-      POSTIZ_OAUTH_USERINFO_URL: "https://authentik.example.com/application/o/userinfo"
-      POSTIZ_OAUTH_CLIENT_ID: ""
-      POSTIZ_OAUTH_CLIENT_SECRET: ""
+      # === OAuth Settings (Runtime - only for generic OAuth, not Google)
+      # Leave these empty/unset to use Google Sign-In instead of Authentik
+      # POSTIZ_OAUTH_URL: "https://auth.example.com"
+      # POSTIZ_OAUTH_AUTH_URL: "https://auth.example.com/application/o/authorize"
+      # POSTIZ_OAUTH_TOKEN_URL: "https://auth.example.com/application/o/token"
+      # POSTIZ_OAUTH_USERINFO_URL: "https://authentik.example.com/application/o/userinfo"
+      # POSTIZ_OAUTH_CLIENT_ID: ""
+      # POSTIZ_OAUTH_CLIENT_SECRET: ""
       # POSTIZ_OAUTH_SCOPE: "openid profile email"  # Optional: uncomment to override default scope
       
-      NEXT_PUBLIC_SENTRY_DSN: "http://spotlight:8969/stream"
       SENTRY_SPOTLIGHT: "1"
       
       # === Misc Settings
@@ -93,8 +107,6 @@ services:
       GROK_API_KEY: ""  # xAI Grok API key (alternative to OpenAI)
       XAI_API_KEY: ""   # Alternative name for Grok API key
       DEEPSEEK_API_KEY: ""  # DeepSeek API key (alternative to OpenAI)
-      NEXT_PUBLIC_DISCORD_SUPPORT: ""
-      NEXT_PUBLIC_POLOTNO: ""
       API_LIMIT: 30
       
       # === Payment / Stripe Settings
@@ -105,7 +117,7 @@ services:
       STRIPE_SIGNING_KEY_CONNECT: ""
       
       # === Developer Settings
-      NX_ADD_PLUGINS: false
+      NX_ADD_PLUGINS: "false"
       
       # === Short Link Service Settings (Optional - leave blank if unused)
       # DUB_TOKEN: ""
