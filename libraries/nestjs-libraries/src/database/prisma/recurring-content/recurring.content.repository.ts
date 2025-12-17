@@ -1,9 +1,9 @@
 import { Injectable } from '@nestjs/common';
-import { PrismaRepository } from '@gitroom/nestjs-libraries/database/prisma/prisma.service';
+import { PrismaService } from '@gitroom/nestjs-libraries/database/prisma/prisma.service';
 
 @Injectable()
 export class RecurringContentRepository {
-  constructor(private _client: PrismaRepository) {}
+  constructor(private _client: PrismaService) {}
 
   async getAll(organizationId: string) {
     return this._client.recurringContent.findMany({

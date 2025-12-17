@@ -1,0 +1,461 @@
+Building postiz
+DEPRECATED: The legacy builder is deprecated and will be removed in a future release.
+            Install the buildx component to build images with BuildKit:
+            https://docs.docker.com/go/buildx/
+
+Sending build context to Docker daemon  8.723MB
+Step 1/43 : FROM node:22.20-alpine
+22.20-alpine: Pulling from library/node
+2d35ebdb57d9: Already exists
+2f385331c129: Pulling fs layer
+b6cd7e47c1da: Pulling fs layer
+44a43d49c511: Pulling fs layer
+44a43d49c511: Verifying Checksum
+44a43d49c511: Download complete
+b6cd7e47c1da: Verifying Checksum
+b6cd7e47c1da: Download complete
+2f385331c129: Verifying Checksum
+2f385331c129: Download complete
+2f385331c129: Pull complete
+b6cd7e47c1da: Pull complete
+44a43d49c511: Pull complete
+Digest: sha256:dbcedd8aeab47fbc0f4dd4bffa55b7c3c729a707875968d467aaaea42d6225af
+Status: Downloaded newer image for node:22.20-alpine
+ ---> 735b621e3e54
+Step 2/43 : ARG NEXT_PUBLIC_VERSION
+ ---> Running in 8a01017562af
+ ---> Removed intermediate container 8a01017562af
+ ---> b723f5210af2
+Step 3/43 : ARG NEXT_PUBLIC_BACKEND_URL
+ ---> Running in 9166a6337bd4
+ ---> Removed intermediate container 9166a6337bd4
+ ---> b8df30a705a6
+Step 4/43 : ARG NEXT_PUBLIC_UPLOAD_DIRECTORY
+ ---> Running in 48702693d9d0
+ ---> Removed intermediate container 48702693d9d0
+ ---> 302932a03749
+Step 5/43 : ARG NEXT_PUBLIC_UPLOAD_STATIC_DIRECTORY
+ ---> Running in 5e87002dda41
+ ---> Removed intermediate container 5e87002dda41
+ ---> 083c1dab7c82
+Step 6/43 : ARG NEXT_PUBLIC_DISCORD_SUPPORT
+ ---> Running in 9b414550182b
+ ---> Removed intermediate container 9b414550182b
+ ---> 6d91153a71d7
+Step 7/43 : ARG NEXT_PUBLIC_POLOTNO
+ ---> Running in 2d10f8d3a9e8
+ ---> Removed intermediate container 2d10f8d3a9e8
+ ---> 571f1d0287dd
+Step 8/43 : ARG NEXT_PUBLIC_POSTIZ_OAUTH_DISPLAY_NAME
+ ---> Running in 7ed1df9924eb
+ ---> Removed intermediate container 7ed1df9924eb
+ ---> ba4c03923461
+Step 9/43 : ARG NEXT_PUBLIC_POSTIZ_OAUTH_LOGO_URL
+ ---> Running in 7cc0c26159d4
+ ---> Removed intermediate container 7cc0c26159d4
+ ---> 4d22fe436497
+Step 10/43 : ARG NEXT_PUBLIC_SENTRY_DSN
+ ---> Running in 914b2c13931b
+ ---> Removed intermediate container 914b2c13931b
+ ---> 28061e5dc421
+Step 11/43 : ARG NEXT_PUBLIC_TOLT
+ ---> Running in 6a178d522fbe
+ ---> Removed intermediate container 6a178d522fbe
+ ---> a8b2e3d49b8a
+Step 12/43 : ARG NEXT_PUBLIC_FACEBOOK_PIXEL
+ ---> Running in 77832b768a9e
+ ---> Removed intermediate container 77832b768a9e
+ ---> c36e4280a54f
+Step 13/43 : ARG POSTIZ_GENERIC_OAUTH
+ ---> Running in d848001a474f
+ ---> Removed intermediate container d848001a474f
+ ---> 50dc2c8a0baa
+Step 14/43 : ARG IS_GENERAL
+ ---> Running in 14dc0b042273
+ ---> Removed intermediate container 14dc0b042273
+ ---> 250c47df144a
+Step 15/43 : ARG STORAGE_PROVIDER
+ ---> Running in 06d1507031f3
+ ---> Removed intermediate container 06d1507031f3
+ ---> c10f47c039ea
+Step 16/43 : ARG FRONTEND_URL
+ ---> Running in ffa88f9623ed
+ ---> Removed intermediate container ffa88f9623ed
+ ---> 1f895a3ca7d4
+Step 17/43 : ENV NEXT_PUBLIC_VERSION=$NEXT_PUBLIC_VERSION
+ ---> Running in fa1fbb1feaf1
+ ---> Removed intermediate container fa1fbb1feaf1
+ ---> 40686203a5bf
+Step 18/43 : ENV NEXT_PUBLIC_BACKEND_URL=$NEXT_PUBLIC_BACKEND_URL
+ ---> Running in cbcb96e7629f
+ ---> Removed intermediate container cbcb96e7629f
+ ---> 95cca9c7c9dc
+Step 19/43 : ENV NEXT_PUBLIC_UPLOAD_DIRECTORY=$NEXT_PUBLIC_UPLOAD_DIRECTORY
+ ---> Running in 5ca9e6606c33
+ ---> Removed intermediate container 5ca9e6606c33
+ ---> d78c3abd2b1c
+Step 20/43 : ENV NEXT_PUBLIC_UPLOAD_STATIC_DIRECTORY=$NEXT_PUBLIC_UPLOAD_STATIC_DIRECTORY
+ ---> Running in 8ab8d43e3ced
+ ---> Removed intermediate container 8ab8d43e3ced
+ ---> 6beff5e4c681
+Step 21/43 : ENV NEXT_PUBLIC_DISCORD_SUPPORT=$NEXT_PUBLIC_DISCORD_SUPPORT
+ ---> Running in dcd1e6c8cd2c
+ ---> Removed intermediate container dcd1e6c8cd2c
+ ---> 822f2a01a017
+Step 22/43 : ENV NEXT_PUBLIC_POLOTNO=$NEXT_PUBLIC_POLOTNO
+ ---> Running in 6ed745b37331
+ ---> Removed intermediate container 6ed745b37331
+ ---> 0852b2d9358a
+Step 23/43 : ENV NEXT_PUBLIC_POSTIZ_OAUTH_DISPLAY_NAME=$NEXT_PUBLIC_POSTIZ_OAUTH_DISPLAY_NAME
+ ---> Running in e83caaffab62
+ ---> Removed intermediate container e83caaffab62
+ ---> b02b8347e7dd
+Step 24/43 : ENV NEXT_PUBLIC_POSTIZ_OAUTH_LOGO_URL=$NEXT_PUBLIC_POSTIZ_OAUTH_LOGO_URL
+ ---> Running in 07fc26b58801
+ ---> Removed intermediate container 07fc26b58801
+ ---> 6ff70a1f0f75
+Step 25/43 : ENV NEXT_PUBLIC_SENTRY_DSN=$NEXT_PUBLIC_SENTRY_DSN
+ ---> Running in f8f4b2e589ed
+ ---> Removed intermediate container f8f4b2e589ed
+ ---> 57be14b18b51
+Step 26/43 : ENV NEXT_PUBLIC_TOLT=$NEXT_PUBLIC_TOLT
+ ---> Running in 84eb0973620f
+ ---> Removed intermediate container 84eb0973620f
+ ---> 95ad6f41a83a
+Step 27/43 : ENV NEXT_PUBLIC_FACEBOOK_PIXEL=$NEXT_PUBLIC_FACEBOOK_PIXEL
+ ---> Running in af9d886e4581
+ ---> Removed intermediate container af9d886e4581
+ ---> dd1878b4d36c
+Step 28/43 : ENV POSTIZ_GENERIC_OAUTH=$POSTIZ_GENERIC_OAUTH
+ ---> Running in 61592bcff042
+ ---> Removed intermediate container 61592bcff042
+ ---> 6c216af41479
+Step 29/43 : ENV IS_GENERAL=$IS_GENERAL
+ ---> Running in 6e1ceab563de
+ ---> Removed intermediate container 6e1ceab563de
+ ---> 6849835dd015
+Step 30/43 : ENV STORAGE_PROVIDER=$STORAGE_PROVIDER
+ ---> Running in c38b7f0eaf32
+ ---> Removed intermediate container c38b7f0eaf32
+ ---> 93fbe2e895a3
+Step 31/43 : ENV FRONTEND_URL=$FRONTEND_URL
+ ---> Running in a04cb2327b21
+ ---> Removed intermediate container a04cb2327b21
+ ---> 1d5aa69bf4aa
+Step 32/43 : RUN apk add --no-cache g++ make py3-pip bash nginx
+ ---> Running in 5c65468ff14d
+fetch https://dl-cdn.alpinelinux.org/alpine/v3.22/main/x86_64/APKINDEX.tar.gz
+fetch https://dl-cdn.alpinelinux.org/alpine/v3.22/community/x86_64/APKINDEX.tar.gz
+(1/40) Installing ncurses-terminfo-base (6.5_p20250503-r0)
+(2/40) Installing libncursesw (6.5_p20250503-r0)
+(3/40) Installing readline (8.2.13-r1)
+(4/40) Installing bash (5.2.37-r0)
+Executing bash-5.2.37-r0.post-install
+(5/40) Installing libstdc++-dev (14.2.0-r6)
+(6/40) Installing jansson (2.14.1-r0)
+(7/40) Installing zstd-libs (1.5.7-r0)
+(8/40) Installing binutils (2.44-r3)
+(9/40) Installing libgomp (14.2.0-r6)
+(10/40) Installing libatomic (14.2.0-r6)
+(11/40) Installing gmp (6.3.0-r3)
+(12/40) Installing isl26 (0.26-r1)
+(13/40) Installing mpfr4 (4.2.1_p1-r0)
+(14/40) Installing mpc1 (1.3.1-r1)
+(15/40) Installing gcc (14.2.0-r6)
+(16/40) Installing musl-dev (1.2.5-r10)
+(17/40) Installing g++ (14.2.0-r6)
+(18/40) Installing make (4.4.1-r3)
+(19/40) Installing pcre2 (10.46-r0)
+(20/40) Installing nginx (1.28.0-r3)
+Executing nginx-1.28.0-r3.pre-install
+Executing nginx-1.28.0-r3.post-install
+(21/40) Installing libbz2 (1.0.8-r6)
+(22/40) Installing libexpat (2.7.3-r0)
+(23/40) Installing libffi (3.4.8-r0)
+(24/40) Installing gdbm (1.24-r0)
+(25/40) Installing xz-libs (5.8.1-r0)
+(26/40) Installing mpdecimal (4.0.1-r0)
+(27/40) Installing libpanelw (6.5_p20250503-r0)
+(28/40) Installing sqlite-libs (3.49.2-r1)
+(29/40) Installing python3 (3.12.12-r0)
+(30/40) Installing python3-pycache-pyc0 (3.12.12-r0)
+(31/40) Installing pyc (3.12.12-r0)
+(32/40) Installing py3-setuptools-pyc (80.9.0-r0)
+(33/40) Installing py3-pip-pyc (25.1.1-r0)
+(34/40) Installing py3-parsing (3.2.3-r0)
+(35/40) Installing py3-parsing-pyc (3.2.3-r0)
+(36/40) Installing py3-packaging-pyc (25.0-r0)
+(37/40) Installing python3-pyc (3.12.12-r0)
+(38/40) Installing py3-packaging (25.0-r0)
+(39/40) Installing py3-setuptools (80.9.0-r0)
+(40/40) Installing py3-pip (25.1.1-r0)
+Executing busybox-1.37.0-r19.trigger
+OK: 293 MiB in 58 packages
+ ---> Removed intermediate container 5c65468ff14d
+ ---> a4700845ade8
+Step 33/43 : RUN adduser -D -g 'www' www
+ ---> Running in 92c55ddb2135
+ ---> Removed intermediate container 92c55ddb2135
+ ---> 687ec28d56fa
+Step 34/43 : RUN mkdir /www
+ ---> Running in 01d88645f2e3
+ ---> Removed intermediate container 01d88645f2e3
+ ---> b96bbfcef894
+Step 35/43 : RUN chown -R www:www /var/lib/nginx
+ ---> Running in c5b2745e0738
+ ---> Removed intermediate container c5b2745e0738
+ ---> d8ca6211cb66
+Step 36/43 : RUN chown -R www:www /www
+ ---> Running in 4922c7f19924
+ ---> Removed intermediate container 4922c7f19924
+ ---> 671556524b5b
+Step 37/43 : RUN npm --no-update-notifier --no-fund --global install pnpm@10.6.1 pm2
+ ---> Running in 7ab25b191957
+
+added 134 packages in 9s
+ ---> Removed intermediate container 7ab25b191957
+ ---> 2815a569669b
+Step 38/43 : WORKDIR /app
+ ---> Running in b0a89a813f8f
+ ---> Removed intermediate container b0a89a813f8f
+ ---> 6f9f684b3f05
+Step 39/43 : COPY . /app
+ ---> 8f963718ad63
+Step 40/43 : COPY var/docker/nginx.conf /etc/nginx/nginx.conf
+ ---> 0bacff10987d
+Step 41/43 : RUN pnpm install
+ ---> Running in ffd1d7c5a63b
+Scope: all 8 workspace projects
+Lockfile is up to date, resolution step is skipped
+Packages: +3828
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+   ╭───────────────────────────────────────────────────────────────────╮
+   │                                                                   │
+   │                Update available! 10.6.1 → 10.26.0.                │
+   │   Changelog: https://github.com/pnpm/pnpm/releases/tag/v10.26.0   │
+   │                 Run "pnpm add -g pnpm" to update.                 │
+   │                                                                   │
+   ╰───────────────────────────────────────────────────────────────────╯
+
+Progress: resolved 0, reused 0, downloaded 1, added 0
+Progress: resolved 0, reused 0, downloaded 24, added 21
+Progress: resolved 0, reused 0, downloaded 40, added 33
+Progress: resolved 0, reused 0, downloaded 81, added 59
+Progress: resolved 0, reused 0, downloaded 103, added 104
+Progress: resolved 0, reused 0, downloaded 122, added 125
+Progress: resolved 0, reused 0, downloaded 153, added 154
+Progress: resolved 0, reused 0, downloaded 227, added 216
+Progress: resolved 0, reused 0, downloaded 247, added 256
+Progress: resolved 0, reused 0, downloaded 307, added 316
+Progress: resolved 0, reused 0, downloaded 339, added 341
+Progress: resolved 0, reused 0, downloaded 368, added 375
+Progress: resolved 0, reused 0, downloaded 429, added 455
+Progress: resolved 0, reused 0, downloaded 448, added 489
+Progress: resolved 0, reused 0, downloaded 465, added 505
+Progress: resolved 0, reused 0, downloaded 485, added 526
+Progress: resolved 0, reused 0, downloaded 530, added 573
+Progress: resolved 0, reused 0, downloaded 578, added 616
+Progress: resolved 0, reused 0, downloaded 638, added 690
+Progress: resolved 0, reused 0, downloaded 670, added 734
+Progress: resolved 0, reused 0, downloaded 726, added 815
+Progress: resolved 0, reused 0, downloaded 807, added 910
+Progress: resolved 0, reused 0, downloaded 829, added 945
+Progress: resolved 0, reused 0, downloaded 843, added 959
+Progress: resolved 0, reused 0, downloaded 859, added 974
+Progress: resolved 0, reused 0, downloaded 872, added 984
+Progress: resolved 0, reused 0, downloaded 897, added 1020
+Progress: resolved 0, reused 0, downloaded 938, added 1068
+Progress: resolved 0, reused 0, downloaded 982, added 1110
+Progress: resolved 0, reused 0, downloaded 1056, added 1193
+Progress: resolved 0, reused 0, downloaded 1105, added 1244
+Progress: resolved 0, reused 0, downloaded 1161, added 1303
+Progress: resolved 0, reused 0, downloaded 1241, added 1393
+Progress: resolved 0, reused 0, downloaded 1283, added 1441
+Progress: resolved 0, reused 0, downloaded 1355, added 1515
+Progress: resolved 0, reused 0, downloaded 1439, added 1615
+Progress: resolved 0, reused 0, downloaded 1453, added 1636
+Progress: resolved 0, reused 0, downloaded 1501, added 1692
+Progress: resolved 0, reused 0, downloaded 1547, added 1748
+Progress: resolved 0, reused 0, downloaded 1615, added 1831
+Progress: resolved 0, reused 0, downloaded 1676, added 1895
+Progress: resolved 0, reused 0, downloaded 1694, added 1914
+Progress: resolved 0, reused 0, downloaded 1715, added 1937
+Progress: resolved 0, reused 0, downloaded 1807, added 2045
+Progress: resolved 0, reused 0, downloaded 1857, added 2111
+Progress: resolved 0, reused 0, downloaded 1890, added 2161
+Progress: resolved 0, reused 0, downloaded 1930, added 2199
+Progress: resolved 0, reused 0, downloaded 2006, added 2300
+Progress: resolved 0, reused 0, downloaded 2086, added 2384
+Progress: resolved 0, reused 0, downloaded 2186, added 2497
+Progress: resolved 0, reused 0, downloaded 2327, added 2652
+Progress: resolved 0, reused 0, downloaded 2375, added 2712
+Progress: resolved 0, reused 0, downloaded 2461, added 2805
+Progress: resolved 0, reused 0, downloaded 2526, added 2872
+Progress: resolved 0, reused 0, downloaded 2563, added 2906
+Progress: resolved 0, reused 0, downloaded 2628, added 2995
+Progress: resolved 0, reused 0, downloaded 2756, added 3128
+Progress: resolved 0, reused 0, downloaded 2858, added 3233
+Progress: resolved 0, reused 0, downloaded 2890, added 3264
+Progress: resolved 0, reused 0, downloaded 2924, added 3309
+Progress: resolved 0, reused 0, downloaded 3045, added 3457
+Progress: resolved 0, reused 0, downloaded 3125, added 3574
+Progress: resolved 0, reused 0, downloaded 3161, added 3645
+Progress: resolved 0, reused 0, downloaded 3215, added 3707
+Progress: resolved 0, reused 0, downloaded 3265, added 3764
+Progress: resolved 0, reused 0, downloaded 3312, added 3824
+Progress: resolved 0, reused 0, downloaded 3315, added 3828, done
+node_modules/bcrypt install$ node-pre-gyp install --fallback-to-build
+node_modules/bcrypt install: node-pre-gyp info it worked if it ends with ok
+node_modules/bcrypt install: node-pre-gyp info using node-pre-gyp@1.0.11
+node_modules/bcrypt install: node-pre-gyp info using node@22.20.0 | linux | x64
+node_modules/bcrypt install: node-pre-gyp info check checked for "/app/node_modules/bcrypt/lib/binding/napi-v3/bcrypt_lib.node" (not found)
+node_modules/bcrypt install: node-pre-gyp http GET https://github.com/kelektiv/node.bcrypt.js/releases/download/v5.1.1/bcrypt_lib-v5.1.1-napi-v3-linux-x64-musl.tar.gz
+node_modules/bcrypt install: node-pre-gyp info install unpacking napi-v3/bcrypt_lib.node
+node_modules/bcrypt install: node-pre-gyp info extracted file count: 1 
+node_modules/bcrypt install: node-pre-gyp info ok 
+node_modules/bcrypt install: [bcrypt] Success: "/app/node_modules/bcrypt/lib/binding/napi-v3/bcrypt_lib.node" is installed via remote
+node_modules/bcrypt install: Done
+
+╭ Warning ─────────────────────────────────────────────────────────────────────╮│                                                                              ││   Ignored build scripts: @nestjs/core,                                       ││   @openapitools/openapi-generator-cli, @parcel/watcher, @prisma/client,      ││   @prisma/engines, @scarf/scarf, @sentry-internal/node-cpu-profiler,         ││   @sentry/cli, @swc/core, bufferutil, canvas, core-js, core-js-pure,         ││   esbuild, msgpackr-extract, prisma, protobufjs, sharp, unrs-resolver,       ││   utf-8-validate.                                                            ││   Run "pnpm approve-builds" to pick which dependencies should be allowed     ││   to run scripts.                                                            ││                                                                              │╰──────────────────────────────────────────────────────────────────────────────╯
+
+. postinstall$ pnpm run prisma-generate
+. postinstall: > gitroom@1.0.0 prisma-generate /app
+. postinstall: > pnpm dlx prisma@6.5.0 generate --schema ./libraries/nestjs-libraries/src/database/prisma/schema.prisma
+. postinstall: Progress: resolved 1, reused 0, downloaded 0, added 0
+. postinstall: Progress: resolved 5, reused 0, downloaded 0, added 0
+. postinstall: Progress: resolved 34, reused 0, downloaded 0, added 0
+. postinstall: Progress: resolved 36, reused 0, downloaded 0, added 0
+. postinstall: Packages: +12
+. postinstall: ++++++++++++
+. postinstall: Progress: resolved 38, reused 10, downloaded 1, added 11
+. postinstall: Progress: resolved 38, reused 10, downloaded 2, added 12, done
+. postinstall: .../19b2dc8d78c-2e/node_modules/prisma preinstall$ node scripts/preinstall-entry.js
+. postinstall: .../19b2dc8d78c-2e/node_modules/prisma preinstall: Done
+. postinstall: Environment variables loaded from .env
+. postinstall: Prisma schema loaded from libraries/nestjs-libraries/src/database/prisma/schema.prisma
+. postinstall: ✔ Generated Prisma Client (v6.5.0) to ./node_modules/@prisma/client in 845ms
+. postinstall: Start by importing your Prisma Client (See: https://pris.ly/d/importing-client)
+. postinstall: Tip: Want real-time updates to your database without manual polling? Discover how with Pulse: https://pris.ly/tip-0-pulse
+. postinstall: Done
+Done in 1m 23.7s using pnpm v10.6.1
+ ---> Removed intermediate container ffd1d7c5a63b
+ ---> 40b6b970e84e
+Step 42/43 : RUN NODE_OPTIONS="--max-old-space-size=4096" pnpm run build
+ ---> Running in df8ff12355e1
+
+> gitroom@1.0.0 build /app
+> pnpm -r --workspace-concurrency=1 --filter ./apps/frontend --filter ./apps/backend --filter ./apps/workers  --filter ./apps/cron run build
+
+Scope: 4 of 8 workspace projects
+
+> postiz-frontend@1.0.0 build /app/apps/frontend
+> next build
+
+Attention: Next.js now collects completely anonymous telemetry regarding usage.
+This information is used to shape Next.js' roadmap and prioritize features.
+You can learn more, including how to opt-out if you'd not like to participate in this anonymous program, by visiting the following URL:
+https://nextjs.org/telemetry
+
+  ▲ Next.js 14.2.33
+  - Experiments (use with caution):
+    · proxyTimeout
+    · instrumentationHook
+
+   Creating an optimized production build ...
+[91m<w> [webpack.cache.PackFileCacheStrategy] Serializing big strings (185kiB) impacts deserialization performance (consider using Buffer instead and decode when needed)
+[0m[91m<w> [webpack.cache.PackFileCacheStrategy] Serializing big strings (139kiB) impacts deserialization performance (consider using Buffer instead and decode when needed)
+[0m[91mrequest to https://fonts.gstatic.com/s/plusjakartasans/v12/LDIuaomQNQcsA88c7O9yZ4KMCoOg4Koz4yOqhNnZR-AHYA.woff2 failed, reason: 
+
+Retrying 1/3...
+[0m[91mrequest to https://fonts.gstatic.com/s/plusjakartasans/v12/LDIuaomQNQcsA88c7O9yZ4KMCoOg4Koz4yGqhNnZR-AHYA.woff2 failed, reason: 
+
+Retrying 1/3...
+[0m[91mrequest to https://fonts.gstatic.com/s/plusjakartasans/v12/LDIuaomQNQcsA88c7O9yZ4KMCoOg4Koz4yCqhNnZR-AHYA.woff2 failed, reason: 
+
+Retrying 1/3...
+[0m[91mrequest to https://fonts.gstatic.com/s/plusjakartasans/v12/LDIuaomQNQcsA88c7O9yZ4KMCoOg4Koz4y6qhNnZR-A.woff2 failed, reason: 
+
+Retrying 1/3...
+[0m[91mrequest to https://fonts.gstatic.com/s/plusjakartasans/v12/LDIoaomQNQcsA88c7O9yZ4KMCoOg4Ko70yygg_vbd-E.woff2 failed, reason: 
+
+Retrying 1/3...
+[0m[91mrequest to https://fonts.gstatic.com/s/plusjakartasans/v12/LDIoaomQNQcsA88c7O9yZ4KMCoOg4Ko50yygg_vbd-E.woff2 failed, reason: 
+
+Retrying 1/3...
+[0m[91mrequest to https://fonts.gstatic.com/s/plusjakartasans/v12/LDIoaomQNQcsA88c7O9yZ4KMCoOg4Ko40yygg_vbd-E.woff2 failed, reason: 
+
+Retrying 1/3...
+[0m[91mrequest to https://fonts.gstatic.com/s/plusjakartasans/v12/LDIoaomQNQcsA88c7O9yZ4KMCoOg4Ko20yygg_vb.woff2 failed, reason: 
+
+Retrying 1/3...
+[0m[91mrequest to https://fonts.gstatic.com/s/plusjakartasans/v12/LDIoaomQNQcsA88c7O9yZ4KMCoOg4Ko70yygg_vbd-E.woff2 failed, reason: 
+
+Retrying 2/3...
+[0m[91mrequest to https://fonts.gstatic.com/s/plusjakartasans/v12/LDIoaomQNQcsA88c7O9yZ4KMCoOg4Ko50yygg_vbd-E.woff2 failed, reason: 
+
+Retrying 2/3...
+[0m ✓ Compiled successfully
+   Linting and checking validity of types ...
+   Collecting page data ...
+   Generating static pages (0/18) ...
+   Generating static pages (4/18) 
+   Generating static pages (8/18) 
+   Generating static pages (13/18) 
+ ✓ Generating static pages (18/18)
+   Finalizing page optimization ...
+   Collecting build traces ...
+
+Route (app)                              Size     First Load JS
+┌ ○ /_not-found                          1.03 kB        90.6 kB
+├ ƒ /agents                              325 B          89.9 kB
+├ ƒ /agents/[id]                         5.63 kB        1.72 MB
+├ ƒ /analytics                           74.1 kB        1.78 MB
+├ ƒ /api/uploads/[[...path]]             0 B                0 B
+├ ƒ /auth                                4.29 kB         495 kB
+├ ƒ /auth/activate                       1.32 kB         108 kB
+├ ƒ /auth/activate/[code]                2.93 kB         127 kB
+├ ƒ /auth/forgot                         3.99 kB         256 kB
+├ ƒ /auth/forgot/[token]                 4.33 kB         257 kB
+├ ƒ /auth/login                          163 kB          597 kB
+├ ƒ /auth/login-required                 325 B          89.9 kB
+├ ƒ /billing                             24.1 kB         213 kB
+├ ƒ /billing/lifetime                    7.15 kB         194 kB
+├ ƒ /err                                 324 B          89.9 kB
+├ ƒ /integrations/social/[provider]      20.3 kB         136 kB
+├ ƒ /launches                            443 B           1.7 MB
+├ ƒ /media                               569 B           582 kB
+├ ƒ /modal/[style]/[platform]            1.08 kB        1.42 MB
+├ ƒ /p/[id]                              11.3 kB         158 kB
+├ ƒ /plugs                               3.89 kB        1.71 MB
+├ ƒ /settings                            10.2 kB        1.72 MB
+└ ƒ /third-party                         3.85 kB        1.71 MB
++ First Load JS shared by all            89.5 kB
+  ├ chunks/1528-bf33470e4fd17145.js      32 kB
+  ├ chunks/1dd3208c-819023a06e8df5d7.js  53.8 kB
+  └ other shared chunks (total)          3.76 kB
+
+
+ƒ Middleware                             130 kB
+
+○  (Static)   prerendered as static content
+ƒ  (Dynamic)  server-rendered on demand
+
+
+> postiz-backend@1.0.0 build /app/apps/backend
+> cross-env NODE_ENV=production nest build
+
+[91m[96m../../libraries/nestjs-libraries/src/database/prisma/recurring-content/recurring.content.repository.ts[0m:[93m6[0m:[93m32[0m - [91merror[0m[90m TS2314: [0mGeneric type 'PrismaRepository<T>' requires 1 type argument(s).
+
+[7m6[0m   constructor(private _client: PrismaRepository) {}
+[7m [0m [91m                               ~~~~~~~~~~~~~~~~[0m
+
+[0mFound 1 error(s).
+
+/app/apps/backend:
+ ERR_PNPM_RECURSIVE_RUN_FIRST_FAIL  postiz-backend@1.0.0 build: `cross-env NODE_ENV=production nest build`
+Exit status 1
+ WARN   Local package.json exists, but node_modules missing, did you mean to install?
+ ELIFECYCLE  Command failed with exit code 1.
+The command '/bin/sh -c NODE_OPTIONS="--max-old-space-size=4096" pnpm run build' returned a non-zero code: 1
+Service 'postiz' failed to build : Build failed
