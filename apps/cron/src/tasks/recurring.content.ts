@@ -53,7 +53,7 @@ export class RecurringContentCron {
         } catch (error) {
           this.logger.error(
             `Error processing ${content.name}:`,
-            error.message
+            error instanceof Error ? error.message : String(error)
           );
         }
       }
