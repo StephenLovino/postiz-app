@@ -1,26 +1,9 @@
 services:
   postiz:
-    build:
-      context: .
-      dockerfile: Dockerfile.dev
-      args:
-        # Build-time variables (baked into Next.js frontend)
-        NEXT_PUBLIC_VERSION: "latest"
-        NEXT_PUBLIC_BACKEND_URL: "https://ahaprojects-postiz.loowdu.easypanel.host/api"
-        NEXT_PUBLIC_UPLOAD_DIRECTORY: "/uploads"
-        NEXT_PUBLIC_UPLOAD_STATIC_DIRECTORY: "/uploads"
-        NEXT_PUBLIC_DISCORD_SUPPORT: ""
-        NEXT_PUBLIC_POLOTNO: ""
-        # OAuth Settings - Leave empty to show Google Sign-In instead of Authentik
-        # POSTIZ_GENERIC_OAUTH: Not set (empty) = false, which shows Google Sign-In
-        NEXT_PUBLIC_POSTIZ_OAUTH_DISPLAY_NAME: ""
-        NEXT_PUBLIC_POSTIZ_OAUTH_LOGO_URL: ""
-        NEXT_PUBLIC_SENTRY_DSN: "http://spotlight:8969/stream"
-        NEXT_PUBLIC_TOLT: ""
-        NEXT_PUBLIC_FACEBOOK_PIXEL: ""
-        IS_GENERAL: "true"
-        STORAGE_PROVIDER: "local"
-        FRONTEND_URL: "https://ahaprojects-postiz.loowdu.easypanel.host"
+    # Using pre-built image from GitHub Container Registry (much faster than building from source)
+    # Image was built locally with Google Sign-In support and pushed to ghcr.io
+    image: ghcr.io/stephenlovino/postiz-app:latest
+    pull_policy: always
     restart: always
     environment:
       # === Required Settings (https://docs.postiz.com/configuration/reference#required-settings)
