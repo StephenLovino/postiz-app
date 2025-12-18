@@ -84,7 +84,9 @@ export default async function AppLayout({ children }: { children: ReactNode }) {
             <ToltScript />
             <FacebookComponent />
             <Plausible
-              domain={!!process.env.IS_GENERAL ? 'postiz.com' : 'gitroom.com'}
+              domain={
+                !!process.env.IS_GENERAL ? 'ahasocialmanager.com' : 'gitroom.com'
+              }
             >
               <PHProvider
                 phkey={process.env.NEXT_PUBLIC_POSTHOG_KEY}

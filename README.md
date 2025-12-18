@@ -1,8 +1,8 @@
 <p align="center">
-  <a href="https://postiz.com/" target="_blank">
+  <a href="https://ahasocialmanager.com/" target="_blank">
   <picture>
     <source media="(prefers-color-scheme: dark)" srcset="https://github.com/user-attachments/assets/765e9d72-3ee7-4a56-9d59-a2c9befe2311">
-    <img alt="Postiz Logo" src="https://github.com/user-attachments/assets/f0d30d70-dddb-4142-8876-e9aa6ed1cb99" width="280"/>
+    <img alt="AHA Social Manager Logo" src="https://github.com/user-attachments/assets/f0d30d70-dddb-4142-8876-e9aa6ed1cb99" width="280"/>
   </picture>
   </a>
 </p>
@@ -16,9 +16,9 @@
 <div align="center">
   <strong>
   <h2>Your ultimate AI social media scheduling tool</h2><br />
-  <a href="https://postiz.com">Postiz</a>: An alternative to: Buffer.com, Hypefury, Twitter Hunter, etc...<br /><br />
+  <a href="https://ahasocialmanager.com">AHA Social Manager</a>: An alternative to: Buffer.com, Hypefury, Twitter Hunter, etc...<br /><br />
   </strong>
-  Postiz offers everything you need to manage your social media posts,<br />build an audience, capture leads, and grow your business.
+  AHA Social Manager offers everything you need to manage your social media posts,<br />build an audience, capture leads, and grow your business.
 </div>
 
 <div class="flex" align="center">
@@ -41,16 +41,16 @@
 
 <p align="center">
   <br />
-  <a href="https://docs.postiz.com" rel="dofollow"><strong>Explore the docs »</strong></a>
+  <a href="https://docs.postiz.com" rel="dofollow"><strong>Explore the original Postiz docs »</strong></a>
   <br />
 
   <br />
-  <a href="https://youtube.com/@postizofficial" rel="dofollow"><strong>Watch the YouTube Tutorials»</strong></a>
+  <a href="https://youtube.com/@postizofficial" rel="dofollow"><strong>Watch the original Postiz YouTube Tutorials»</strong></a>
   <br />
 </p>
 
 <p align="center">
-  <a href="https://platform.postiz.com">Register</a>
+  <a href="https://platform.postiz.com">Register on the original Postiz hosted service</a>
   ·
   <a href="https://discord.postiz.com">Join Our Discord (devs only)</a>
   ·
@@ -99,23 +99,12 @@
 
 To have the project up and running, please follow the [Quick Start Guide](https://docs.postiz.com/quickstart)
 
-## Sponsor Postiz
+## Based on Postiz
 
-We now give a few options to Sponsor Postiz:
-- Just a donation: You like what we are building, and want to buy us some coffees so we can build faster.
-- Main Repository: Get your logo with a backlink from the main Postiz repository. Postiz has almost 3m downloads and 20k views per month.
-- Main Repository + Website: Get your logo on the central repository and the main website. Here are some metrics: - Website has 20k hits per month + 65 DR (strong backlink) - Repository has 20k hits per month + Almost 3m docker downloads.
-
-Link: https://opencollective.com/postiz
-
-## Postiz Compliance
-
-- Postiz is an open-source, self-hosted social media scheduling tool that supports platforms like X (formerly Twitter), Bluesky, Mastodon, Discord, and others.
-- Postiz hosted service uses official, platform-approved OAuth flows.
-- Postiz does not automate or scrape content from social media platforms.
-- Postiz does not collect, store, or proxy API keys or access tokens from users.
-- Postiz never ask users to paste API keys into our hosted product.
-- Postiz Users always authenticate directly with the social platform (e.g., X, Discord, etc.), ensuring platform compliance and data privacy.
+AHA Social Manager is a rebranded fork of the excellent open‑source project
+[Postiz](https://github.com/gitroomhq/postiz-app).
+Please refer to the Postiz repository, docs, and community links above for
+upstream support and sponsorship options.
 
 ## Star History
 
@@ -124,6 +113,8 @@ Link: https://opencollective.com/postiz
 ## License
 
 This repository's source code is available under the [AGPL-3.0 license](LICENSE).
+AHA Social Manager is distributed under the same license as Postiz and remains
+free software.
 
 <br /><br /><br />
 
