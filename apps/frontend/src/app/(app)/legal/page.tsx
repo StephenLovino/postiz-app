@@ -22,11 +22,11 @@ export default function LegalPage() {
       <p>
         You can view the full source code for this deployment at:{' '}
         <Link
-          href="https://github.com/StephenLovino/postiz-app"
+          href="https://github.com/StephenLovino/aha-social-manager"
           className="underline"
           target="_blank"
         >
-          https://github.com/StephenLovino/postiz-app
+          https://github.com/StephenLovino/aha-social-manager
         </Link>
         .
       </p>
